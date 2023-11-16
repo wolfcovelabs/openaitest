@@ -1,1 +1,19 @@
 
+from pathlib import Path
+from openai import OpenAI
+client = OpenAI()
+
+
+mymedscript = "Relax and close your eyes. Get comfortable either lying down or sitting against some pillows. Breathe deeply and begin to become aware of your breath."
+
+speech_file_path = Path(__file__).parent / "meditationFriendAnxiety.mp3"
+response = client.audio.speech.create(
+  model="tts-1",
+  voice="onyx",
+  input=mymedscript
+)
+
+response.stream_to_file(speech_file_path)
+
+
+
