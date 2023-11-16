@@ -19,5 +19,22 @@ response = client.audio.speech.create(
 
 response.stream_to_file(speech_file_path)
 
+def run():
+    st.set_page_config(
+        page_title="Hello",
+        page_icon="👋",
+    )
+
+    st.write("# Welcome to Wolf Cove Labs! 👋")
+    st.markdown(
+        """
+       Welcome to my very first amazing streamlit app with OpenAI!!! WOO. 
+    """
+    )
+
+
+if __name__ == "__main__":
+    run()
+
 
 
