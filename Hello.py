@@ -17,6 +17,19 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
+from openai import OpenAI
+client = OpenAI()
+
+completion = client.chat.completions.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {"role": "system", "content": "Act like a poet who loves e.e. cummings."},
+    {"role": "user", "content": "Compose a poem that explains the concept of life after death."}
+  ]
+)
+
+print(completion.choices[0].message)
+
 
 def run():
     st.set_page_config(
